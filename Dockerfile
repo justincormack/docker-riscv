@@ -21,6 +21,7 @@ RUN \
     texinfo \
     gperf
 
+# clone repo
 RUN \
   mkdir -p /usr/src && cd /usr/src && \
     git clone https://github.com/lowRISC/riscv-tools.git && \
@@ -30,5 +31,12 @@ WORKDIR /usr/src/riscv-tools
 
 ENV RISCV=/usr/local
 
+# build
 RUN \
   ./build.sh
+
+# quick hello world test
+COPY hello.c /usr/src/
+RUN \
+  riscv64-unknown-elf-gcc -o /usr/src/hello /usr/src/hello.c && \
+  spike pk /usr/src/hello
