@@ -19,6 +19,8 @@ RUN \
     bison \
     flex \
     texinfo \
+    bc \
+    libncurses5-dev \
     gperf
 
 # clone repo
