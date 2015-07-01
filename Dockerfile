@@ -20,6 +20,7 @@ RUN \
     flex \
     texinfo \
     bc \
+    vim \
     libncurses5-dev \
     gperf
 
